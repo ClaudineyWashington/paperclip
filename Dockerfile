@@ -55,7 +55,8 @@ RUN npm install --global --omit=dev @anthropic-ai/claude-code@latest @openai/cod
   && apt-get install -y --no-install-recommends openssh-client jq \
   && rm -rf /var/lib/apt/lists/* \
   && mkdir -p /paperclip \
-  && chown node:node /paperclip
+  && chown node:node /paperclip \
+  && chmod 755 /paperclip
 
 COPY scripts/docker-entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/docker-entrypoint.sh
